@@ -1,0 +1,178 @@
+/* =============== Global Styles =============== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Responsive container */
+.calculator-container {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffffdd;
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    animation: fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(22px, 5vw, 30px);
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+/* =============== Unit Buttons =============== */
+.units {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.unit-option {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    background: #e3e3e3;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: clamp(12px, 3.5vw, 16px);
+    font-weight: 600;
+}
+
+.unit-option.active {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    color: #fff;
+    box-shadow: 0 0 10px #ff9a9e;
+}
+
+/* =============== Input Fields =============== */
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: clamp(12px, 3vw, 16px);
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 12px 45px 12px 12px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    font-size: clamp(14px, 4vw, 18px);
+    transition: 0.3s;
+}
+
+.input-group span {
+    position: absolute;
+    right: 12px;
+    top: 36px;
+    font-weight: bold;
+    font-size: clamp(12px, 3.5vw, 16px);
+}
+
+/* =============== Button =============== */
+button {
+    width: 100%;
+    padding: 14px;
+    font-size: clamp(16px, 4vw, 20px);
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* =============== Result Card =============== */
+.result {
+    margin-top: 25px;
+    padding: 20px;
+    background: #ffffffcc;
+    border-radius: 18px;
+    text-align: center;
+    display: none;
+}
+
+.bmi-value {
+    font-size: clamp(32px, 8vw, 52px);
+    font-weight: bold;
+    color: #ff6a00;
+}
+
+.bmi-category {
+    font-size: clamp(16px, 4vw, 22px);
+    font-weight: 600;
+}
+
+#bmiDescription {
+    font-size: clamp(12px, 3.2vw, 15px);
+    margin-top: 6px;
+    color: #555;
+}
+
+/* =============== BMI Scale =============== */
+.bmi-scale {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 8px;
+}
+
+.scale-item {
+    padding: 12px 6px;
+    border-radius: 10px;
+    color: white;
+    font-size: clamp(10px, 3vw, 13px);
+    font-weight: 600;
+    text-align: center;
+}
+
+.scale-item:nth-child(1) { background: #00c6ff; }
+.scale-item:nth-child(2) { background: #28a745; }
+.scale-item:nth-child(3) { background: #ffc107; color: #333; }
+.scale-item:nth-child(4) { background: #dc3545; }
+
+/* Extra small mobile screens */
+@media (max-width: 350px) {
+    .calculator-container {
+        padding: 20px;
+    }
+
+    .units {
+        flex-direction: column;
+    }
+
+    .bmi-scale {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
